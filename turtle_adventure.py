@@ -435,25 +435,29 @@ class EnemyGenerator:
         """
         Create a new enemy, possibly based on the game level
         """
-        random_enemy = RandomWalkEnemy(self.__game, 20, "white")
-        random_enemy.x = random.randint(self.game.home.x - 200, self.game.home.x - (random_enemy.size + 5))
-        random_enemy.y = random.randint(self.game.home.y - 200, self.game.home.y - (random_enemy.size + 5))
-        self.game.add_element(random_enemy)
+        i = 0
+        while (i<self.__level):
+            random_enemy = RandomWalkEnemy(self.__game, 20, "white")
+            random_enemy.x = random.randint(self.game.home.x - 200, self.game.home.x - (random_enemy.size + 5))
+            random_enemy.y = random.randint(self.game.home.y - 200, self.game.home.y - (random_enemy.size + 5))
+            self.game.add_element(random_enemy)
 
-        chase_enemy = ChasingEnemy(self.__game, 20, "red")
-        chase_enemy.x = random.randint(self.game.home.x - 200, self.game.home.x - (chase_enemy.size + 5))
-        chase_enemy.y = random.randint(self.game.home.y - 200, self.game.home.y - (chase_enemy.size + 5))
-        self.game.add_element(chase_enemy)
+            chase_enemy = ChasingEnemy(self.__game, 20, "red")
+            chase_enemy.x = random.randint(self.game.home.x - 200, self.game.home.x - (chase_enemy.size + 5))
+            chase_enemy.y = random.randint(self.game.home.y - 200, self.game.home.y - (chase_enemy.size + 5))
+            self.game.add_element(chase_enemy)
 
-        fence_enemy = FencingEnemy(self.__game, 20, "green")
-        fence_enemy.x = random.randint(self.game.home.x - 200, self.game.home.x - (fence_enemy.size + 5))
-        fence_enemy.y = random.randint(self.game.home.y - 200, self.game.home.y - (fence_enemy.size + 5))
-        self.game.add_element(fence_enemy)
+            fence_enemy = FencingEnemy(self.__game, 20, "green")
+            fence_enemy.x = random.randint(self.game.home.x - 200, self.game.home.x - (fence_enemy.size + 5))
+            fence_enemy.y = random.randint(self.game.home.y - 200, self.game.home.y - (fence_enemy.size + 5))
+            self.game.add_element(fence_enemy)
 
-        ghost_enemy = GhostEnemy(self.__game, 20, "gray")
-        ghost_enemy.x = random.randint(self.game.home.x - 200, self.game.home.x - (ghost_enemy.size + 5))
-        ghost_enemy.y = random.randint(self.game.home.y - 200, self.game.home.y - (ghost_enemy.size + 5))
-        self.game.add_element(ghost_enemy)
+            ghost_enemy = GhostEnemy(self.__game, 20, "gray")
+            ghost_enemy.x = random.randint(self.game.home.x - 200, self.game.home.x - (ghost_enemy.size + 5))
+            ghost_enemy.y = random.randint(self.game.home.y - 200, self.game.home.y - (ghost_enemy.size + 5))
+            self.game.add_element(ghost_enemy)
+
+            i = i+1
 
 
 class TurtleAdventureGame(Game):  # pylint: disable=too-many-ancestors
